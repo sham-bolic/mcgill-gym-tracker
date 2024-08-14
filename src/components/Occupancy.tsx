@@ -16,7 +16,7 @@ declare module '@mui/joy/styles' {
   }
 }
 
-export default function Occupation(props: { currentVisitors: number }) {
+export default function Occupancy(props: { currentVisitors: number }) {
   const maxOccupancy = 200; // TBD
   const percentageOfProgressBar = Math.round(
     (props.currentVisitors / maxOccupancy) * 100
@@ -46,10 +46,6 @@ export default function Occupation(props: { currentVisitors: number }) {
         light: {
           palette: {
             secondary: {
-              // Credit:
-              // https://github.com/tailwindlabs/tailwindcss/blob/master/src/public/colors.js
-              // Adjust the global variant tokens as you'd like.
-              // The tokens should be the same for all color schemes.
               solidBg: "#F07B0E",
               softHoverBg: "#F0DDA1"
             },
