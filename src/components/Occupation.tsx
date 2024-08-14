@@ -1,6 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
+import type { PaletteRange } from '@mui/joy/styles';
+
+declare module '@mui/joy/styles' {
+  interface ColorPalettePropOverrides {
+    // apply to all Joy UI components that support `color` prop
+    secondary: true;
+  }
+
+  interface Palette {
+    // this will make the node `secondary` configurable in `extendTheme`
+    // and add `secondary` to the theme's palette.
+    secondary: PaletteRange;
+  }
+}
 
 export default function Occupation(props: { currentVisitors: number }) {
   const maxOccupancy = 200; // TBD
@@ -27,22 +41,22 @@ export default function Occupation(props: { currentVisitors: number }) {
   }),
     [];
 
-  const theme = extendTheme({
-    colorSchemes: {
-      light: {
-        palette: {
-          secondary: {
-            // Credit:
-            // https://github.com/tailwindlabs/tailwindcss/blob/master/src/public/colors.js
-            // Adjust the global variant tokens as you'd like.
-            // The tokens should be the same for all color schemes.
-            solidBg: "#F07B0E",
-            softHoverBg: "#F0DDA1"
+    const theme = extendTheme({
+      colorSchemes: {
+        light: {
+          palette: {
+            secondary: {
+              // Credit:
+              // https://github.com/tailwindlabs/tailwindcss/blob/master/src/public/colors.js
+              // Adjust the global variant tokens as you'd like.
+              // The tokens should be the same for all color schemes.
+              solidBg: "#F07B0E",
+              softHoverBg: "#F0DDA1"
+            },
           },
         },
       },
-    },
-  });
+    });
 
   return (
     <CssVarsProvider theme={theme}>
