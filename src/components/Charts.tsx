@@ -1,11 +1,13 @@
-import { color } from "chart.js/helpers";
 import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 
 export default function Charts() {
-  const DummyData = [["Time", "Occupancy"]];
+  let DummyData: any[]
+  let DummyData2: any[]
 
-  const DummyData2 = [["Time", "Occupancy"]];
+  DummyData = [["Time", "Occupancy"]];
+
+  DummyData2 = [["Time", "Occupancy"]];
 
   for (let i = 6.5; i < 23; i += 0.25) {
     DummyData.push([i, Math.random()]);
